@@ -1,20 +1,23 @@
 <template lang="html">
   <div class="welcome">
+    <img height="300" width="400" src="../assets/twitchphoto copy.png">
     <h1>{{ msg }}</h1>
+    <router-link :to="{ name: 'viewrooms', params: {} }"><button type="button" name="button">View Rooms</button></router-link>
     <div class="stuff">
-      <form class="" action="index.html" method="post">
-      <input type="text" name="" value="" v-model= "streamChangeOne">
-      <button type="submit"
+      <form>
+
+      <input type="text" placeholder="Enter Stream name here" name="" value="" v-model= "streamChangeOne">
+
+      <button type="button"
               name="button"
               @click.prevent="changeStreamOne()">Click!</button>
 
       </form>
-      <form class="" action="index.html" method="post">
-      <input type="text" name="" value="" v-model= "streamChangeTwo">
-      <button type="submit"
+      <form>
+      <input type="text" placeholder="Enter Stream name here" name="" value="" v-model= "streamChangeTwo">
+      <button type="button"
               name="button"
               @click.prevent="changeStreamTwo()">Click!</button>
-
       </form>
 
       <iframe
@@ -36,10 +39,13 @@
     </div>
 
 
+
+
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -52,13 +58,13 @@ export default {
   },
   methods: {
     changeStreamOne(streamChangeOne) {
-      streamChangeOne= this.streamChangeOne
+      streamChangeOne= this.streamChangeOne.toLowerCase().trim();
       this.streamOne = `http://player.twitch.tv/?channel=${streamChangeOne}&muted=true`;
       console.log(this.streamChangeOne)
       this.streamChangeOne=""
     },
     changeStreamTwo(streamChangeTwo) {
-      streamChangeTwo= this.streamChangeTwo
+      streamChangeTwo= this.streamChangeTwo.toLowerCase().trim();
       this.streamTwo = `http://player.twitch.tv/?channel=${streamChangeTwo}&muted=true`;
       console.log(this.streamChangeTwo)
       this.streamChangeTwo=""
