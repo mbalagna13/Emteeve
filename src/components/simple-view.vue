@@ -1,9 +1,10 @@
 <template lang="html">
   <div class="welcome">
+    <navbar></navbar>
     <img height="300" width="400" src="../assets/twitchphoto copy.png">
     <h1>{{ msg }}</h1>
     <router-link :to="{ name: 'viewrooms', params: {} }"><button type="button" name="button">View Rooms</button></router-link>
-    <div class="stuff">
+    <!-- <div class="stuff">
       <form>
 
       <input type="text" placeholder="Enter Stream name here" name="" value="" v-model= "streamChangeOne">
@@ -36,7 +37,7 @@
           scrolling="no"
           allowfullscreen="true">
       </iframe>
-    </div>
+    </div> -->
 
 
 
@@ -45,8 +46,13 @@
 </template>
 
 <script>
+import navbar from './Navbar.vue'
 
 export default {
+  components: {
+    navbar,
+  },
+
   data() {
     return {
       streamChangeOne: "",

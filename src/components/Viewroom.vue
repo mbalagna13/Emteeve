@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="stuff">
-
+    <navbar></navbar>
 
   <div class="container">
         <div class="row">
@@ -52,7 +52,12 @@
 </template>
 
 <script>
+import navbar from './NavBar.vue'
+
 export default {
+  components: {
+    navbar,
+  },
   name: 'Test',
 
   data() {
@@ -61,8 +66,8 @@ export default {
       chat:[],
       streamChangeOne: "",
       streamChangeTwo: "",
-      streamOne: "http://player.twitch.tv/?channel=&muted=true",
-      streamTwo: "http://player.twitch.tv/?channel=&muted=true"
+      streamOne: "http://player.twitch.tv/?channel=disnof&muted=true",
+      streamTwo: "http://player.twitch.tv/?channel=moonmoon_ow&muted=true"
 
     }
   },
