@@ -18,7 +18,7 @@
           <ul class="nav navbar-nav">
             <li><router-link :to="{ name: 'simple-view', params: {} }"><a>Home</a></router-link></li>
             <li><router-link :to="{ name: 'viewrooms', params: {} }"><a>Viewrooms</a></router-link></li>
-            <li><router-link :to="{ name: 'createviewroom', params: {} }"><a>Create Viewroom</a></router-link></li>
+            <li><router-link :to="{ name: 'viewroom', params: {} }"><a>Create Viewroom</a></router-link></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><router-link :to="{ name: 'login', params: {} }"><a>Login</a></router-link></li>

@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Simple from '@/components/simple-view'
 import Login from '@/components/Login'
-import Viewrooms from '@/components/Viewroom'
+import Viewroom from '@/components/Viewroom.vue'
+import Viewrooms from '@/components/Viewrooms'
 import Signup from '@/components/Signup'
 import CreateViewRooms from '@/components/Viewrooms'
 
@@ -21,6 +22,11 @@ export default new Router({
       component: Viewrooms
     },
     {
+      path:'/viewroom/:name',
+      name: 'viewroom',
+      component: Viewroom
+    },
+    {
       path:'/login',
       name: 'login',
       component: Login
@@ -33,7 +39,7 @@ export default new Router({
     {
       path: '/createviewroom',
       name: 'createviewroom',
-      component: CreateViewRooms  
+      component: CreateViewRooms
     }
 
   ]

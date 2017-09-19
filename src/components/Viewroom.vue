@@ -14,7 +14,7 @@
           </div>
             <div class="col-md-4">
               <form>
-              <input type="text" placeholder="Enter Stream name" name="" value="" v-model= "streamChangeTwo">
+              <input type="text"c placeholder="Enter Stream name" name="" value="" v-model= "streamChangeTwo">
               <button type="button"
                       name="button"
                       @click.prevent="changeStreamTwo()">Click!</button>
@@ -40,11 +40,12 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div v-for="messages in chat">
-            {{messages}}
+            {{messages.username}}: {{messages.message}}
             </div>
           </div>
         </div>
-      <input type="text" v-model="message" name="" value="" @keydown.enter="clickButton">
+      <input type="text" v-model="chatData.username" name="" value="" @keydown.enter="clickButton">
+      <input type="text" v-model="chatData.message" name="" value="" @keydown.enter="clickButton">
       <button @click="clickButton()" type="button" value="hello" name="button">Send</button>
   </div>
 
@@ -62,12 +63,17 @@ export default {
 
   data() {
     return {
-      message:"",
+      windowData: window.location.hash.split('/'),
+
+      chatData:{
+        username: "",
+        message: ""
+      },
       chat:[],
       streamChangeOne: "",
       streamChangeTwo: "",
       streamOne: "http://player.twitch.tv/?channel=disnof&muted=true",
-      streamTwo: "http://player.twitch.tv/?channel=moonmoon_ow&muted=true"
+      streamTwo: "http://player.twitch.tv/?channel=moonmoon_ow&muted=true",
 
     }
   },
@@ -77,6 +83,7 @@ export default {
     },
     hello: function(data){
       this.chat.push(data.message)
+
       console.log(data)
       console.log(this.chat);
     }
@@ -85,8 +92,9 @@ export default {
     clickButton: function(val){
         // $socket is socket.io-client instance
         console.log("fired button");
-        this.$socket.emit('hello', {message: this.message});
-        this.message= ""
+        console.log(this.windowData[2]);
+        this.$socket.emit('hello', {message: this.chatData});
+        this.chatData.message= ""
     },
     changeStreamOne(streamChangeOne) {
       streamChangeOne= this.streamChangeOne.toLowerCase().trim();
