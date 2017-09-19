@@ -1,12 +1,27 @@
 <template lang="html">
   <div>
     <navbar></navbar>
-    <div class="container">
-      <button class="btn btn-primary" @click="fetchViewRooms" name="button">Get viewrooms</button>
-      <ul class="list-group" v-for="things in rooms">
-        <li class="list-group-item">{{things.name}}</li>
-        <router-link tag="button" :to='`viewroom/${things.name}`'>Enter</router-link>
-      </ul>
+    <div class="" v-for="things in rooms">
+      <div class="container">
+        <div class="row">
+          <div class=" panel panel-default col-md-4 col-md-offset-3">
+            <div class="panel-body">
+              <ul class="">
+                <p class="">
+                  {{things.name}}
+                  <router-link tag="button" :to='`viewroom/${things.name}`'>Enter R</router-link>
+                </p>
+
+              </ul>
+              <div class="row">
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,7 +40,7 @@ export default {
   },
   methods: {
     fetchViewRooms() {
-      this.$http.get('http://localhost:3000/messages/viewrooms')
+      this.$http.get('https://emteevedb.herokuapp.com/messages/viewrooms')
         .then(response => {
           return response.json();
 
@@ -38,7 +53,7 @@ export default {
     }
   },
   mounted() {
-      this.$http.get('http://localhost:3000/messages/viewrooms')
+      this.$http.get('https://emteevedb.herokuapp.com/messages/viewrooms')
         .then(response => {
           return response.json();
 
@@ -54,4 +69,5 @@ export default {
 </script>
 
 <style lang="css">
+
 </style>

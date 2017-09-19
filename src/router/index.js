@@ -5,7 +5,7 @@ import Login from '@/components/Login'
 import Viewroom from '@/components/Viewroom.vue'
 import Viewrooms from '@/components/Viewrooms'
 import Signup from '@/components/Signup'
-import CreateViewRooms from '@/components/Viewrooms'
+import CreateViewRooms from '@/components/Createroom'
 
 Vue.use(Router)
 

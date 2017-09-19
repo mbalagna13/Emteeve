@@ -8,7 +8,7 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
 
-Vue.use(VueSocketio, 'http://localhost:3000')
+Vue.use(VueSocketio, 'https://emteevedb.herokuapp.com/')
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

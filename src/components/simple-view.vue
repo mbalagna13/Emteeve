@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="welcome">
     <navbar></navbar>
-    <img height="300" width="400" src="../assets/twitchphoto copy.png">
+    <img height="300" width="400" src="../assets/Screen Shot 2017-09-19 at 11.54.31 AM.png">
     <h1>{{ msg }}</h1>
     <router-link :to="{ name: 'viewrooms', params: {} }"><button type="button" name="button">View Rooms</button></router-link>
-  
+
   </div>
 </template>
 

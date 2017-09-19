@@ -21,32 +21,39 @@
               </form>
             </div>
         </div>
-        <iframe
-            :src="streamOne"
-            height="400"
-            width="500"
-            frameborder="0"
-            scrolling="no"
-            allowfullscreen="true">
-        </iframe>
-        <iframe
-            :src="streamTwo"
-            height="400"
-            width="500"
-            frameborder="0"
-            scrolling="no"
-            allowfullscreen="true">
-        </iframe>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div v-for="messages in chat">
-            {{messages.username}}: {{messages.message}}
+        <div class="row">
+          <iframe
+              :src="streamOne"
+              height="400"
+              width="500"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen="true">
+          </iframe>
+          <iframe
+              :src="streamTwo"
+              height="400"
+              width="500"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen="true">
+          </iframe>
+        </div>
+        <div class="row">
+          <div class="">
+            <div class="chatbox well pre-scrollable col-sm-4 col-md-offset-4">
+
+              <div   v-for="messages in chat">
+              {{messages.username}}: {{messages.message}}
+              </div>
             </div>
           </div>
         </div>
-      <input type="text" v-model="chatData.username" name="" value="" @keydown.enter="clickButton">
-      <input type="text" v-model="chatData.message" name="" value="" @keydown.enter="clickButton">
-      <button @click="clickButton()" type="button" value="hello" name="button">Send</button>
+        <div class="row">
+          <input type="text" v-model="chatData.username" name="" value="" @keydown.enter="clickButton">
+          <input type="text" v-model="chatData.message" name="" value="" @keydown.enter="clickButton">
+          <button @click="clickButton()" type="button" value="hello" name="button">Send</button>
+        </div>
   </div>
 
   </div>
@@ -64,7 +71,7 @@ export default {
   data() {
     return {
       windowData: window.location.hash.split('/'),
-
+      // chatbox: this.el$.querySelector("#chatbox"),
       chatData:{
         username: "",
         message: ""
@@ -72,8 +79,8 @@ export default {
       chat:[],
       streamChangeOne: "",
       streamChangeTwo: "",
-      streamOne: "http://player.twitch.tv/?channel=disnof&muted=true",
-      streamTwo: "http://player.twitch.tv/?channel=moonmoon_ow&muted=true",
+      streamOne: "https://player.twitch.tv/?channel=disnof&muted=true",
+      streamTwo: "https://player.twitch.tv/?channel=moonmoon_ow&muted=true",
 
     }
   },
@@ -94,7 +101,9 @@ export default {
         console.log("fired button");
         console.log(this.windowData[2]);
         this.$socket.emit('hello', {message: this.chatData});
-        this.chatData.message= ""
+        this.chatData.message= "";
+        this.scrollToEnd()
+
     },
     changeStreamOne(streamChangeOne) {
       streamChangeOne= this.streamChangeOne.toLowerCase().trim();
@@ -107,10 +116,22 @@ export default {
       this.streamTwo = `http://player.twitch.tv/?channel=${streamChangeTwo}&muted=true`;
       console.log(this.streamChangeTwo)
       this.streamChangeTwo=""
+    },
+    scrollToEnd() {
+      var chatbox = this.$el.querySelector(".chatbox");
+      console.log(chatbox);
+      chatbox.scrollTop = chatbox.scrollHeight
     }
+
   }
 }
 </script>
 
 <style lang="css">
+.well {
+  font-weight: bold;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
 </style>
