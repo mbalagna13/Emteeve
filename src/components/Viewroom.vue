@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="row">
-          <input type="text" v-model="chatData.username" name="" value="" @keydown.enter="clickButton">
+          <input type="text" placeholder="Username" v-model="chatData.username" name="" value="" @keydown.enter="clickButton">
           <input type="text" v-model="chatData.message" name="" value="" @keydown.enter="clickButton">
           <button @click="clickButton()" type="button" value="hello" name="button">Send</button>
         </div>
@@ -107,13 +107,13 @@ export default {
     },
     changeStreamOne(streamChangeOne) {
       streamChangeOne= this.streamChangeOne.toLowerCase().trim();
-      this.streamOne = `http://player.twitch.tv/?channel=${streamChangeOne}&muted=true`;
+      this.streamOne = `https://player.twitch.tv/?channel=${streamChangeOne}&muted=true`;
       console.log(this.streamChangeOne)
       this.streamChangeOne=""
     },
     changeStreamTwo(streamChangeTwo) {
       streamChangeTwo= this.streamChangeTwo.toLowerCase().trim();
-      this.streamTwo = `http://player.twitch.tv/?channel=${streamChangeTwo}&muted=true`;
+      this.streamTwo = `https://player.twitch.tv/?channel=${streamChangeTwo}&muted=true`;
       console.log(this.streamChangeTwo)
       this.streamChangeTwo=""
     },
