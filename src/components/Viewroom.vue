@@ -41,7 +41,7 @@
         </div>
         <div class="row">
           <div class="">
-            <div class="chatbox well pre-scrollable col-sm-4 col-md-offset-4">
+            <div class="chatbox text-left well pre-scrollable col-sm-4 col-md-offset-4">
 
               <div   v-for="messages in chat">
               {{messages.username}}: {{messages.message}}

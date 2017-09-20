@@ -6,16 +6,10 @@
         <div class="row">
           <div class=" panel panel-default col-md-4 col-md-offset-3">
             <div class="panel-body">
-              <ul class="">
-                <p class="">
+              <ul class="text-left">
                   {{things.name}}
-                  <router-link tag="button" :to='`viewroom/${things.name}`'>Enter R</router-link>
-                </p>
-
+                <router-link tag="button" class="text-right" :to='`viewroom/${things.name}`'>Enter Room</router-link>
               </ul>
-              <div class="row">
-
-              </div>
             </div>
 
           </div>
