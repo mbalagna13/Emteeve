@@ -6,18 +6,22 @@
         <div class="row">
           <div class="col-md-4 col-md-offset-2">
             <form>
-            <input type="text" placeholder="Enter Stream name" name="" value="" v-model= "streamChangeOne">
+            <input type="text"  placeholder="Enter Stream name" name="" value="" v-model= "streamChangeOne">
             <button type="button"
                     name="button"
-                    @click.prevent="changeStreamOne()">Click!</button>
+                    id="btn"
+                    class="btn btn-default"
+                    @click.prevent="changeStreamOne()">Change!</button>
             </form>
           </div>
             <div class="col-md-4">
               <form>
-              <input type="text"c placeholder="Enter Stream name" name="" value="" v-model= "streamChangeTwo">
+              <input type="text"  placeholder="Enter Stream name" name="" value="" v-model= "streamChangeTwo">
               <button type="button"
                       name="button"
-                      @click.prevent="changeStreamTwo()">Click!</button>
+                      id="btn"
+                      class="btn btn-default"
+                      @click.prevent="changeStreamTwo()">Change!</button>
               </form>
             </div>
         </div>
@@ -52,7 +56,7 @@
         <div class="row">
           <input type="text" placeholder="Username" v-model="chatData.username" name="" value="" @keydown.enter="clickButton">
           <input type="text" v-model="chatData.message" name="" value="" @keydown.enter="clickButton">
-          <button @click="clickButton()" type="button" value="hello" name="button">Send</button>
+          <button @click="clickButton()" id="btn" class="btn btn-default" type="button" value="hello" name="button">Send</button>
         </div>
   </div>
 
@@ -132,6 +136,17 @@ export default {
   font-weight: bold;
   overflow-y: auto;
   max-height: 200px;
+}
+
+#btn {
+  background-color: #6441a4;
+  font-weight: bold;
+  font-family: sans-serif;
+  color:white;
+  opacity: 1
+}
+#btn:hover {
+  opacity: .7;
 }
 
 </style>

@@ -8,7 +8,7 @@
             <div class="panel-body">
               <ul class="text-left">
                   {{things.name}}
-                <router-link tag="button" class="text-right" :to='`viewroom/${things.name}`'>Enter Room</router-link>
+                <router-link tag="button" id="btn" class="btn btn-default text-right" :to='`viewroom/${things.name}`'>Enter Room</router-link>
               </ul>
             </div>
 
@@ -63,5 +63,14 @@ export default {
 </script>
 
 <style lang="css">
-
+#btn {
+  background-color: #6441a4;
+  font-weight: bold;
+  font-family: sans-serif;
+  color:white;
+  opacity: 1
+}
+#btn:hover {
+  opacity: .7;
+}
 </style>

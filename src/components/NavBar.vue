@@ -42,4 +42,13 @@ export default {
 </script>
 
 <style lang="css">
+.navbar {
+  background-color: #6441a4;
+  color: white;
+}
+.navbar-brand ,li, a {
+  color: white !important;
+}
+
+
 </style>
