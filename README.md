@@ -1,3 +1,5 @@
 
 # Emteeve
->>>>>>> 9a7d4816a0c4e8f8d740949723b552f01caa7c71
+
+
+* A web application in which you can create your chat rooms with ability to watch multiple Twitch Streams at once!
